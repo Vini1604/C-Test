@@ -2,14 +2,14 @@
 #include<string.h>
 #include<stdlib.h>
 
-struct Aluno {
+typedef struct {
     char matricula[8];
     char nomeAluno[50];
     double *notas;
 
-};
+} Aluno;
 
-void InsereNotas(struct Aluno *a1, int n) {
+void InsereNotas(Aluno *a1, int n) {
     for(int i = 0; i < n; i++){
         printf("Digite a nota P%d do Aluno: ", i + 1);
         scanf("%lf",&a1->notas[i]);
@@ -32,14 +32,14 @@ double CalculaMedia(double notas[], int n) {
     return soma / n;
 }
 
-void CriaEspacoNotas(struct Aluno *a, int n){
+void CriaEspacoNotas(Aluno *a, int n){
     a->notas = (double*) malloc(n * sizeof(double));
 }
 int main(void) {
 
     int n;
     double mediaFinal;
-    struct Aluno a1;
+    Aluno a1;
     printf("Digite a matricula do Aluno: ");
     gets(a1.matricula);
     printf("Digite o nome do Aluno: ");
